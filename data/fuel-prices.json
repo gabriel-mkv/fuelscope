@@ -1,0 +1,351 @@
+[ {
+  "cnpj" : "05835706000197",
+  "legalName" : "AUTO POSTO MR LTDA",
+  "tradeName" : "AUTO POSTO BATISTA",
+  "address" : "AVENIDA PROFESSOR MELLO CANCADO",
+  "neighborhood" : "SAO JOSE",
+  "brand" : "IPIRANGA",
+  "product" : "DIESEL S10",
+  "price" : 7.19,
+  "collectionDate" : "2026-10-08"
+}, {
+  "cnpj" : "05835706000197",
+  "legalName" : "AUTO POSTO MR LTDA",
+  "tradeName" : "AUTO POSTO BATISTA",
+  "address" : "AVENIDA PROFESSOR MELLO CANCADO",
+  "neighborhood" : "SAO JOSE",
+  "brand" : "IPIRANGA",
+  "product" : "DIESEL S500",
+  "price" : 6.79,
+  "collectionDate" : "2026-10-08"
+}, {
+  "cnpj" : "05835706000197",
+  "legalName" : "AUTO POSTO MR LTDA",
+  "tradeName" : "AUTO POSTO BATISTA",
+  "address" : "AVENIDA PROFESSOR MELLO CANCADO",
+  "neighborhood" : "SAO JOSE",
+  "brand" : "IPIRANGA",
+  "product" : "ETANOL",
+  "price" : 4.29,
+  "collectionDate" : "2026-10-08"
+}, {
+  "cnpj" : "05835706000197",
+  "legalName" : "AUTO POSTO MR LTDA",
+  "tradeName" : "AUTO POSTO BATISTA",
+  "address" : "AVENIDA PROFESSOR MELLO CANCADO",
+  "neighborhood" : "SAO JOSE",
+  "brand" : "IPIRANGA",
+  "product" : "GASOLINA ADITIVADA",
+  "price" : 6.43,
+  "collectionDate" : "2026-10-08"
+}, {
+  "cnpj" : "05835706000197",
+  "legalName" : "AUTO POSTO MR LTDA",
+  "tradeName" : "AUTO POSTO BATISTA",
+  "address" : "AVENIDA PROFESSOR MELLO CANCADO",
+  "neighborhood" : "SAO JOSE",
+  "brand" : "IPIRANGA",
+  "product" : "GASOLINA COMUM",
+  "price" : 6.29,
+  "collectionDate" : "2026-10-08"
+}, {
+  "cnpj" : "08538103000111",
+  "legalName" : "AUTO POSTO IRMAOS MELGACO LTDA",
+  "tradeName" : "AUTO POSTO BOA VIAGEM",
+  "address" : "AVENIDA PRESIDENTE VARGAS",
+  "neighborhood" : "DONA TUNICA",
+  "brand" : "VIBRA",
+  "product" : "DIESEL S10",
+  "price" : 6.99,
+  "collectionDate" : "2026-10-05"
+}, {
+  "cnpj" : "08538103000111",
+  "legalName" : "AUTO POSTO IRMAOS MELGACO LTDA",
+  "tradeName" : "AUTO POSTO BOA VIAGEM",
+  "address" : "AVENIDA PRESIDENTE VARGAS",
+  "neighborhood" : "DONA TUNICA",
+  "brand" : "VIBRA",
+  "product" : "DIESEL S500",
+  "price" : 6.69,
+  "collectionDate" : "2026-10-05"
+}, {
+  "cnpj" : "08538103000111",
+  "legalName" : "AUTO POSTO IRMAOS MELGACO LTDA",
+  "tradeName" : "AUTO POSTO BOA VIAGEM",
+  "address" : "AVENIDA PRESIDENTE VARGAS",
+  "neighborhood" : "DONA TUNICA",
+  "brand" : "VIBRA",
+  "product" : "ETANOL",
+  "price" : 3.99,
+  "collectionDate" : "2026-10-05"
+}, {
+  "cnpj" : "08538103000111",
+  "legalName" : "AUTO POSTO IRMAOS MELGACO LTDA",
+  "tradeName" : "AUTO POSTO BOA VIAGEM",
+  "address" : "AVENIDA PRESIDENTE VARGAS",
+  "neighborhood" : "DONA TUNICA",
+  "brand" : "VIBRA",
+  "product" : "GASOLINA COMUM",
+  "price" : 6.29,
+  "collectionDate" : "2026-10-05"
+}, {
+  "cnpj" : "29335625000196",
+  "legalName" : "LIBER COMERCIO DE COMBUSTIVEIS E DERIVADOS DE PETROLEO LTDA",
+  "tradeName" : "LIBER COMERCIO DE COMBUSTIVEIS E DERIVADOS DE PETROLEO LTDA",
+  "address" : "RUA MANOEL BATISTA",
+  "neighborhood" : "CENTRO",
+  "brand" : "IPIRANGA",
+  "product" : "DIESEL S10",
+  "price" : 6.97,
+  "collectionDate" : "2026-10-08"
+}, {
+  "cnpj" : "29335625000196",
+  "legalName" : "LIBER COMERCIO DE COMBUSTIVEIS E DERIVADOS DE PETROLEO LTDA",
+  "tradeName" : "LIBER COMERCIO DE COMBUSTIVEIS E DERIVADOS DE PETROLEO LTDA",
+  "address" : "RUA MANOEL BATISTA",
+  "neighborhood" : "CENTRO",
+  "brand" : "IPIRANGA",
+  "product" : "DIESEL S500",
+  "price" : 6.57,
+  "collectionDate" : "2026-10-08"
+}, {
+  "cnpj" : "29335625000196",
+  "legalName" : "LIBER COMERCIO DE COMBUSTIVEIS E DERIVADOS DE PETROLEO LTDA",
+  "tradeName" : "LIBER COMERCIO DE COMBUSTIVEIS E DERIVADOS DE PETROLEO LTDA",
+  "address" : "RUA MANOEL BATISTA",
+  "neighborhood" : "CENTRO",
+  "brand" : "IPIRANGA",
+  "product" : "ETANOL",
+  "price" : 4.27,
+  "collectionDate" : "2026-10-08"
+}, {
+  "cnpj" : "29335625000196",
+  "legalName" : "LIBER COMERCIO DE COMBUSTIVEIS E DERIVADOS DE PETROLEO LTDA",
+  "tradeName" : "LIBER COMERCIO DE COMBUSTIVEIS E DERIVADOS DE PETROLEO LTDA",
+  "address" : "RUA MANOEL BATISTA",
+  "neighborhood" : "CENTRO",
+  "brand" : "IPIRANGA",
+  "product" : "GASOLINA ADITIVADA",
+  "price" : 6.47,
+  "collectionDate" : "2026-10-08"
+}, {
+  "cnpj" : "29335625000196",
+  "legalName" : "LIBER COMERCIO DE COMBUSTIVEIS E DERIVADOS DE PETROLEO LTDA",
+  "tradeName" : "LIBER COMERCIO DE COMBUSTIVEIS E DERIVADOS DE PETROLEO LTDA",
+  "address" : "RUA MANOEL BATISTA",
+  "neighborhood" : "CENTRO",
+  "brand" : "IPIRANGA",
+  "product" : "GASOLINA COMUM",
+  "price" : 6.27,
+  "collectionDate" : "2026-10-08"
+}, {
+  "cnpj" : "19657402000191",
+  "legalName" : "AUTO POSTO ALMEIDA LTDA",
+  "tradeName" : "POSTO AVENIDA III",
+  "address" : "AVENIDA PRESIDENTE VARGAS",
+  "neighborhood" : "SAO FRANCISCO",
+  "brand" : "RAIZEN",
+  "product" : "DIESEL S10",
+  "price" : 7.29,
+  "collectionDate" : "2026-10-05"
+}, {
+  "cnpj" : "19657402000191",
+  "legalName" : "AUTO POSTO ALMEIDA LTDA",
+  "tradeName" : "POSTO AVENIDA III",
+  "address" : "AVENIDA PRESIDENTE VARGAS",
+  "neighborhood" : "SAO FRANCISCO",
+  "brand" : "RAIZEN",
+  "product" : "DIESEL S500",
+  "price" : 6.99,
+  "collectionDate" : "2026-10-05"
+}, {
+  "cnpj" : "19657402000191",
+  "legalName" : "AUTO POSTO ALMEIDA LTDA",
+  "tradeName" : "POSTO AVENIDA III",
+  "address" : "AVENIDA PRESIDENTE VARGAS",
+  "neighborhood" : "SAO FRANCISCO",
+  "brand" : "RAIZEN",
+  "product" : "ETANOL",
+  "price" : 3.99,
+  "collectionDate" : "2026-10-05"
+}, {
+  "cnpj" : "19657402000191",
+  "legalName" : "AUTO POSTO ALMEIDA LTDA",
+  "tradeName" : "POSTO AVENIDA III",
+  "address" : "AVENIDA PRESIDENTE VARGAS",
+  "neighborhood" : "SAO FRANCISCO",
+  "brand" : "RAIZEN",
+  "product" : "GASOLINA ADITIVADA",
+  "price" : 6.49,
+  "collectionDate" : "2026-10-05"
+}, {
+  "cnpj" : "19657402000191",
+  "legalName" : "AUTO POSTO ALMEIDA LTDA",
+  "tradeName" : "POSTO AVENIDA III",
+  "address" : "AVENIDA PRESIDENTE VARGAS",
+  "neighborhood" : "SAO FRANCISCO",
+  "brand" : "RAIZEN",
+  "product" : "GASOLINA COMUM",
+  "price" : 6.29,
+  "collectionDate" : "2026-10-05"
+}, {
+  "cnpj" : "04510593000197",
+  "legalName" : "POSTO J H S LTDA",
+  "tradeName" : "POSTO CANARINHO",
+  "address" : "RUA JOAO DO NETO",
+  "neighborhood" : "CENTRO",
+  "brand" : "ALE",
+  "product" : "DIESEL S10",
+  "price" : 6.89,
+  "collectionDate" : "2026-10-08"
+}, {
+  "cnpj" : "04510593000197",
+  "legalName" : "POSTO J H S LTDA",
+  "tradeName" : "POSTO CANARINHO",
+  "address" : "RUA JOAO DO NETO",
+  "neighborhood" : "CENTRO",
+  "brand" : "ALE",
+  "product" : "ETANOL",
+  "price" : 3.99,
+  "collectionDate" : "2026-10-08"
+}, {
+  "cnpj" : "04510593000197",
+  "legalName" : "POSTO J H S LTDA",
+  "tradeName" : "POSTO CANARINHO",
+  "address" : "RUA JOAO DO NETO",
+  "neighborhood" : "CENTRO",
+  "brand" : "ALE",
+  "product" : "GASOLINA ADITIVADA",
+  "price" : 6.69,
+  "collectionDate" : "2026-10-08"
+}, {
+  "cnpj" : "04510593000197",
+  "legalName" : "POSTO J H S LTDA",
+  "tradeName" : "POSTO CANARINHO",
+  "address" : "RUA JOAO DO NETO",
+  "neighborhood" : "CENTRO",
+  "brand" : "ALE",
+  "product" : "GASOLINA COMUM",
+  "price" : 6.29,
+  "collectionDate" : "2026-10-08"
+}, {
+  "cnpj" : "86539590000140",
+  "legalName" : "COMÉRCIO RODRIGUES E FARIA LTDA",
+  "tradeName" : "POSTO CATAVENTO",
+  "address" : "RUA PEQUI",
+  "neighborhood" : "SANTOS DUMONT",
+  "brand" : "VIBRA",
+  "product" : "DIESEL S10",
+  "price" : 6.94,
+  "collectionDate" : "2026-10-05"
+}, {
+  "cnpj" : "86539590000140",
+  "legalName" : "COMÉRCIO RODRIGUES E FARIA LTDA",
+  "tradeName" : "POSTO CATAVENTO",
+  "address" : "RUA PEQUI",
+  "neighborhood" : "SANTOS DUMONT",
+  "brand" : "VIBRA",
+  "product" : "DIESEL S500",
+  "price" : 6.44,
+  "collectionDate" : "2026-10-05"
+}, {
+  "cnpj" : "86539590000140",
+  "legalName" : "COMÉRCIO RODRIGUES E FARIA LTDA",
+  "tradeName" : "POSTO CATAVENTO",
+  "address" : "RUA PEQUI",
+  "neighborhood" : "SANTOS DUMONT",
+  "brand" : "VIBRA",
+  "product" : "GASOLINA ADITIVADA",
+  "price" : 6.44,
+  "collectionDate" : "2026-10-05"
+}, {
+  "cnpj" : "86539590000140",
+  "legalName" : "COMÉRCIO RODRIGUES E FARIA LTDA",
+  "tradeName" : "POSTO CATAVENTO",
+  "address" : "RUA PEQUI",
+  "neighborhood" : "SANTOS DUMONT",
+  "brand" : "VIBRA",
+  "product" : "GASOLINA COMUM",
+  "price" : 6.39,
+  "collectionDate" : "2026-10-05"
+}, {
+  "cnpj" : "02681911000157",
+  "legalName" : "POSTO PARA LTDA",
+  "tradeName" : "POSTO PARA",
+  "address" : "RUA PADRE LIBERIO",
+  "neighborhood" : "JK",
+  "brand" : "VIBRA",
+  "product" : "DIESEL S500",
+  "price" : 6.39,
+  "collectionDate" : "2026-09-30"
+}, {
+  "cnpj" : "02681911000157",
+  "legalName" : "POSTO PARA LTDA",
+  "tradeName" : "POSTO PARA",
+  "address" : "RUA PADRE LIBERIO",
+  "neighborhood" : "JK",
+  "brand" : "VIBRA",
+  "product" : "GASOLINA ADITIVADA",
+  "price" : 6.42,
+  "collectionDate" : "2026-10-08"
+}, {
+  "cnpj" : "02681911000157",
+  "legalName" : "POSTO PARA LTDA",
+  "tradeName" : "POSTO PARA",
+  "address" : "RUA PADRE LIBERIO",
+  "neighborhood" : "JK",
+  "brand" : "VIBRA",
+  "product" : "GASOLINA COMUM",
+  "price" : 6.32,
+  "collectionDate" : "2026-10-08"
+}, {
+  "cnpj" : "01569818000192",
+  "legalName" : "POSTOS PMG - PARA DE MINAS LTDA",
+  "tradeName" : "POSTOS PMG - PARA DE MINAS LTDA",
+  "address" : "AVENIDA OVIDIO DE ABREU",
+  "neighborhood" : "VILA LARA",
+  "brand" : "BRANCA",
+  "product" : "DIESEL S10",
+  "price" : 6.99,
+  "collectionDate" : "2026-10-08"
+}, {
+  "cnpj" : "01569818000192",
+  "legalName" : "POSTOS PMG - PARA DE MINAS LTDA",
+  "tradeName" : "POSTOS PMG - PARA DE MINAS LTDA",
+  "address" : "AVENIDA OVIDIO DE ABREU",
+  "neighborhood" : "VILA LARA",
+  "brand" : "BRANCA",
+  "product" : "DIESEL S500",
+  "price" : 6.69,
+  "collectionDate" : "2026-10-08"
+}, {
+  "cnpj" : "01569818000192",
+  "legalName" : "POSTOS PMG - PARA DE MINAS LTDA",
+  "tradeName" : "POSTOS PMG - PARA DE MINAS LTDA",
+  "address" : "AVENIDA OVIDIO DE ABREU",
+  "neighborhood" : "VILA LARA",
+  "brand" : "BRANCA",
+  "product" : "ETANOL",
+  "price" : 3.99,
+  "collectionDate" : "2026-10-08"
+}, {
+  "cnpj" : "01569818000192",
+  "legalName" : "POSTOS PMG - PARA DE MINAS LTDA",
+  "tradeName" : "POSTOS PMG - PARA DE MINAS LTDA",
+  "address" : "AVENIDA OVIDIO DE ABREU",
+  "neighborhood" : "VILA LARA",
+  "brand" : "BRANCA",
+  "product" : "GASOLINA ADITIVADA",
+  "price" : 6.42,
+  "collectionDate" : "2026-10-08"
+}, {
+  "cnpj" : "01569818000192",
+  "legalName" : "POSTOS PMG - PARA DE MINAS LTDA",
+  "tradeName" : "POSTOS PMG - PARA DE MINAS LTDA",
+  "address" : "AVENIDA OVIDIO DE ABREU",
+  "neighborhood" : "VILA LARA",
+  "brand" : "BRANCA",
+  "product" : "GASOLINA COMUM",
+  "price" : 6.29,
+  "collectionDate" : "2026-10-08"
+} ]
