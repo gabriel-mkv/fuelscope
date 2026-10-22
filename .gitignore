@@ -44,6 +44,3 @@ nb-configuration.xml
 
 # TLS Certificates
 .certs/
-
-# Data
-data/

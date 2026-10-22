@@ -83,7 +83,7 @@ fuelscope/
 │       └── ci.yml                          # build e testes a cada push/PR
 ├── .mvn/wrapper/
 │   └── maven-wrapper.properties
-├── data/                                   # gerado na execução (ignorado pelo Git)
+├── data/                                   # gerado na execução
 │   ├── fuel-history.json
 │   └── fuel-prices.json
 ├── src/
