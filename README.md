@@ -1,85 +1,114 @@
-# fueldb
+# FuelScope
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+Monitoramento de preços de combustíveis em **Pará de Minas (MG)**, a partir do levantamento semanal da [ANP](https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/arquivos-lpc).
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+O FuelScope baixa as planilhas mais recentes da ANP, extrai os preços dos postos da cidade e mantém arquivos JSON atualizados com o histórico e os preços atuais. Esses arquivos alimentam o site do projeto, que será publicado no GitHub Pages.
 
-## Running the application in dev mode
+## Funcionalidades
 
-You can run your application in dev mode that enables live coding using:
+- Coleta automática das planilhas semanais da ANP, tolerante a semanas ainda não publicadas
+- Filtro por município e estado configuráveis
+- Histórico de 12 meses e preço atual por posto e produto
+- Atualização idempotente: reexecutar não gera duplicatas e correções da ANP são incorporadas
+- Gravação atômica dos arquivos, sem risco de JSON incompleto
 
-```shell script
-./mvnw quarkus:dev
+## Como funciona
+
+```
+ANP (.xlsx semanal) → download → leitura da planilha → merge no histórico → JSON
 ```
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
+A cada execução são verificadas as últimas semanas (4 por padrão), pois a ANP pode publicar com atraso ou reenviar arquivos corrigidos. Os registros são identificados por `(CNPJ, produto, data da coleta)`. A aplicação roda uma vez e encerra com código `0` em caso de sucesso ou `1` em caso de falha, o que a torna adequada para pipelines agendados.
 
-## Packaging and running the application
+## Dados gerados
 
-The application can be packaged using:
+| Arquivo | Conteúdo |
+|---|---|
+| `data/fuel-history.json` | Coletas dos últimos 12 meses |
+| `data/fuel-prices.json` | Preço mais recente de cada posto e produto |
 
-```shell script
+Combustíveis incluídos: gasolina comum, gasolina aditivada, etanol, diesel S10, diesel S500 e GNV.
+
+```json
+{
+  "cnpj": "08220930000162",
+  "legalName": "RAZAO SOCIAL LTDA",
+  "tradeName": "NOME FANTASIA",
+  "address": "RUA EXEMPLO",
+  "neighborhood": "CENTRO",
+  "brand": "BANDEIRA",
+  "product": "GASOLINA COMUM",
+  "price": 6.29,
+  "collectionDate": "2026-09-29"
+}
+```
+
+## Início rápido
+
+Requer **JDK 21**.
+
+```shell
 ./mvnw package
+java -jar target/quarkus-app/quarkus-run.jar
 ```
 
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
+Os arquivos são gravados em `./data/`.
 
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
+## Configuração
 
-If you want to build an _über-jar_, execute the following command:
+Definida em `src/main/resources/application.properties`:
 
-```shell script
-./mvnw package -Dquarkus.package.jar.type=uber-jar
+| Propriedade | Padrão | Descrição |
+|---|---|---|
+| `fuelscope.anp-municipality` | `PARA DE MINAS` | Município a filtrar |
+| `fuelscope.anp-state` | `MINAS GERAIS` | Estado do município |
+| `fuelscope.anp-weeks-to-check` | `4` | Semanas verificadas por execução |
+
+Os valores podem ser sobrescritos por propriedade de sistema (`-Dfuelscope.anp-weeks-to-check=8`) ou variável de ambiente (`FUELSCOPE_ANP_WEEKS_TO_CHECK=8`).
+
+## Testes
+
+```shell
+./mvnw verify
 ```
 
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
+A suíte não acessa a ANP nem depende da data atual: planilhas são geradas em memória, o download usa um servidor HTTP local e o relógio é fixo. A CI executa o mesmo comando a cada push e pull request na `main`.
 
-## Creating a native executable
+## Estrutura
 
-You can create a native executable using:
-
-```shell script
-./mvnw package -Dnative
+```
+fuelscope/
+├── .github/
+│   └── workflows/
+│       └── ci.yml                          # build e testes a cada push/PR
+├── .mvn/wrapper/
+│   └── maven-wrapper.properties
+├── data/                                   # gerado na execução (ignorado pelo Git)
+│   ├── fuel-history.json
+│   └── fuel-prices.json
+├── src/
+│   ├── main/
+│   │   ├── java/com/gabrielmkv/
+│   │   │   ├── AnpUpdateApplication.java  # ponto de entrada
+│   │   │   ├── model/
+│   │   │   │   └── FuelPrice.java         # registro de preço
+│   │   │   └── service/
+│   │   │       ├── AnpDownloadService.java # URLs semanais e download
+│   │   │       ├── AnpParserService.java   # leitura do .xlsx
+│   │   │       ├── AnpUpdateService.java   # orquestração do fluxo
+│   │   │       └── FuelDataService.java    # merge e persistência em JSON
+│   │   └── resources/
+│   │       └── application.properties      # configuração
+│   └── test/
+│       └── java/com/gabrielmkv/service/
+│           ├── AnpDownloadServiceTest.java
+│           ├── AnpParserServiceTest.java
+│           └── FuelDataServiceTest.java
+├── mvnw / mvnw.cmd                         # Maven Wrapper
+├── pom.xml
+└── README.md
 ```
 
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
+## Fonte dos dados
 
-```shell script
-./mvnw package -Dnative -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./target/fueldb-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
-
-## Related Guides
-
-- REST ([guide](https://quarkus.io/guides/rest)): Build RESTful web services and APIs using Jakarta REST (formerly JAX-RS)
-- REST Qute ([guide](https://quarkus.io/guides/qute-reference#rest_integration)): Qute integration for Quarkus REST. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it.
-- Scheduler ([guide](https://quarkus.io/guides/scheduler)): Schedule recurring tasks and periodic jobs using cron expressions or fixed intervals
-- Hibernate ORM with Panache ([guide](https://quarkus.io/guides/hibernate-orm-panache)): Simplified JPA/Hibernate data access layer with active record and repository patterns
-
-## Provided Code
-
-### Hibernate ORM
-
-Create your first JPA entity
-
-[Related guide section...](https://quarkus.io/guides/hibernate-orm)
-
-
-[Related Hibernate with Panache section...](https://quarkus.io/guides/hibernate-orm-panache)
-
-
-### REST
-
-Easily start your REST Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
-
-### REST Qute
-
-Create your web page using Quarkus REST and Qute
-
-[Related guide section...](https://quarkus.io/guides/qute#type-safe-templates)
+Dados do levantamento de preços de revenda da ANP. Este projeto não é afiliado à ANP, e os valores refletem as coletas da agência, podendo diferir do preço praticado no posto.
