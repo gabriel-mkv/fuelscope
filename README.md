@@ -34,7 +34,7 @@ Combustíveis incluídos: gasolina comum, gasolina aditivada, etanol, diesel S10
   "cnpj": "08220930000162",
   "legalName": "RAZAO SOCIAL LTDA",
   "tradeName": "NOME FANTASIA",
-  "address": "RUA EXEMPLO",
+  "address": "RUA EXEMPLO, 123",
   "neighborhood": "CENTRO",
   "brand": "BANDEIRA",
   "product": "GASOLINA COMUM",

@@ -82,6 +82,11 @@ public class AnpParserService {
             int cPrice = requireColumn(columns, "PRECO DE REVENDA");
             int cDate = requireColumn(columns, "DATA DA COLETA");
 
+            Integer cNumber = columns.get("NUMERO");
+            if (cNumber == null) {
+                LOG.warn("Coluna 'NUMERO' não encontrada; endereços ficarão sem número.");
+            }
+
             for (int i = headerRowIndex + 1; i <= sheet.getLastRowNum(); i++) {
                 Row row = sheet.getRow(i);
                 if (row == null) continue;
@@ -103,7 +108,8 @@ public class AnpParserService {
                     // FANTASIA vem vazio em boa parte dos postos; usa a razão social para ter o que exibir.
                     tradeName = legalName;
                 }
-                String address = text(row.getCell(cAddress));
+                String number = cNumber == null ? "" : text(row.getCell(cNumber));
+                String address = fullAddress(text(row.getCell(cAddress)), number);
                 String neighborhood = text(row.getCell(cNeighborhood));
                 String brand = text(row.getCell(cBrand));
                 LocalDate collectionDate = date(row.getCell(cDate));
@@ -178,6 +184,18 @@ public class AnpParserService {
                 .replaceAll("\\p{M}", "")
                 .trim()
                 .toUpperCase();
+    }
+
+    /**
+     * Junta rua e número ("RUA X" + "123" -> "RUA X, 123") para o endereço servir de busca no mapa.
+     * Sem número (vazio ou "S/N"), devolve só a rua.
+     */
+    private String fullAddress(String street, String number) {
+        boolean noNumber = number.isBlank() || normalize(number).matches("S\\s*[/.]?\\s*N\\.?");
+        if (street.isBlank() || noNumber) {
+            return street;
+        }
+        return street + ", " + number;
     }
 
     private String text(Cell cell) {

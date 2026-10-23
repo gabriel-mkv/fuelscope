@@ -215,6 +215,43 @@ class AnpParserServiceTest {
         assertEquals(DATE, parse(file).get(0).collectionDate());
     }
 
+    // ------------------------------------------------------------------ endereço
+
+    @Test
+    @DisplayName("junta rua e número no endereço")
+    void joinsStreetAndNumberInAddress() throws IOException {
+        byte[] file = defaultWorkbook(List.of(validRow(GASOLINA, 6.29)));
+
+        assertEquals("RUA TESTE, 100", parse(file).get(0).address());
+    }
+
+    @Test
+    @DisplayName("mantém número em texto (ex.: KM 45) e ignora vazio, em branco e S/N")
+    void handlesTextAndMissingNumbers() throws IOException {
+        byte[] file = defaultWorkbook(List.of(
+                withNumber("KM 45"),
+                withNumber("S/N"),
+                withNumber("   "),
+                withNumber(null)));
+
+        List<String> addresses = parse(file).stream().map(FuelPrice::address).toList();
+
+        assertEquals(List.of("RUA TESTE, KM 45", "RUA TESTE", "RUA TESTE", "RUA TESTE"), addresses);
+    }
+
+    @Test
+    @DisplayName("sem a coluna NÚMERO, os preços são lidos e o endereço fica só com a rua")
+    void worksWithoutNumberColumn() throws IOException {
+        List<String> withoutNumber = new ArrayList<>(HEADER);
+        withoutNumber.remove("NÚMERO");
+        byte[] file = workbook(SHEET, ANP_METADATA_ROWS, withoutNumber, List.of(validRow(GASOLINA, 6.29)));
+
+        List<FuelPrice> result = parse(file);
+
+        assertEquals(1, result.size());
+        assertEquals("RUA TESTE", result.get(0).address());
+    }
+
     // ------------------------------------------------------------------ linhas inválidas
 
     @Test
@@ -370,6 +407,13 @@ class AnpParserServiceTest {
     /** Linha válida de gasolina em uma cidade/estado qualquer. */
     private static Map<String, Object> rowFor(String city, String state) {
         return row(12345678000190L, "POSTO TESTE LTDA", "POSTO TESTE", city, state, GASOLINA, 6.29, DATE);
+    }
+
+    /** Linha válida de gasolina com o valor da coluna NÚMERO trocado. */
+    private static Map<String, Object> withNumber(Object number) {
+        Map<String, Object> values = validRow(GASOLINA, 6.29);
+        values.put("NÚMERO", number);
+        return values;
     }
 
     // ------------------------------------------------------------------ helpers: montagem do .xlsx
