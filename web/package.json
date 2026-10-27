@@ -1,0 +1,16 @@
+{
+  "name": "fuelscope-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc && node scripts/build.mjs",
+    "serve": "python3 -m http.server 8080 --directory dist",
+    "test": "vitest run"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  }
+}
