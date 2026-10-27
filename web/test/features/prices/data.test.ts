@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parsePrices } from "../src/data";
+import { parsePrices } from "../../../src/features/prices/data";
 
 const valid = {
   cnpj: "08220930000162",

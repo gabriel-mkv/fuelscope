@@ -1,5 +1,5 @@
 import { distinctValues, filterPrices, normalize, type Filters } from "./filters";
-import type { FuelPrice } from "./types";
+import type { FuelPrice } from "../../shared/types";
 
 export const PREFERRED_PRODUCT = "GASOLINA COMUM";
 

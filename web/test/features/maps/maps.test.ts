@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { mapsUrl } from "../src/maps";
-import { makePrice } from "./helpers";
+import { mapsUrl } from "../../../src/features/maps/maps";
+import { makePrice } from "../../helpers";
 
 function queryOf(url: string): string | null {
   return new URL(url).searchParams.get("query");

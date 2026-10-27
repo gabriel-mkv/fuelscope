@@ -1,8 +1,8 @@
-import { el } from "./dom";
-import { formatDate, formatPrice, titleCase } from "./format";
-import { mapsUrl } from "./maps";
-import { toCents, type PriceSummary } from "./ranking";
-import type { FuelPrice } from "./types";
+import { el } from "../shared/dom";
+import { formatDate, formatPrice, titleCase } from "../shared/format";
+import { mapsUrl } from "../features/maps/maps";
+import { toCents, type PriceSummary } from "../features/ranking/ranking";
+import type { FuelPrice } from "../shared/types";
 
 function card(label: string, value: string, detail: string): HTMLElement {
   return el("div", { className: "card" }, [

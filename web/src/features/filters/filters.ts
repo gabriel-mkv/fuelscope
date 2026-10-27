@@ -1,4 +1,4 @@
-import type { FuelPrice } from "./types";
+import type { FuelPrice } from "../../shared/types";
 
 export interface Filters {
   product: string;

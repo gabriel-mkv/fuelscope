@@ -1,4 +1,4 @@
-import type { FuelPrice } from "./types";
+import type { FuelPrice } from "../../shared/types";
 
 /** Cidade acrescentada à busca, já que o endereço da ANP vem sem ela. */
 export const CITY_QUERY = "Pará de Minas, MG";

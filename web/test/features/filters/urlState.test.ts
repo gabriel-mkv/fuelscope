@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseFilters, serializeFilters } from "../src/urlState";
+import { parseFilters, serializeFilters } from "../../../src/features/filters/urlState";
 
 describe("parseFilters", () => {
   it("lê os filtros da query string", () => {

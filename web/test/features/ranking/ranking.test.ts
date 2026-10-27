@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { rankByPrice, summarize, toCents } from "../src/ranking";
-import { makePrice } from "./helpers";
+import { rankByPrice, summarize, toCents } from "../../../src/features/ranking/ranking";
+import { makePrice } from "../../helpers";
 
 describe("toCents", () => {
   it("converte reais em centavos sem perder um centavo por ponto flutuante", () => {

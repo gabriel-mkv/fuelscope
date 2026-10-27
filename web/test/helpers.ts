@@ -1,4 +1,4 @@
-import type { FuelPrice } from "../src/types";
+import type { FuelPrice } from "../src/shared/types";
 
 export function makePrice(overrides: Partial<FuelPrice> = {}): FuelPrice {
   return {

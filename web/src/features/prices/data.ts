@@ -1,4 +1,4 @@
-import type { FuelPrice } from './types';
+import type { FuelPrice } from '../../shared/types';
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 

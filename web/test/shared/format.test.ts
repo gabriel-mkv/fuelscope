@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { daysBetween, formatDate, formatPrice, latestDate, titleCase, todayInBrazil } from "../src/format";
-import type { FuelPrice } from "../src/types";
+import { daysBetween, formatDate, formatPrice, latestDate, titleCase, todayInBrazil } from "../../src/shared/format";
+import type { FuelPrice } from "../../src/shared/types";
 
 function priceOn(collectionDate: string): FuelPrice {
   return {

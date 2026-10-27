@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { distinctValues, filterPrices, normalize, type Filters } from "../src/filters";
-import { makePrice } from "./helpers";
+import { distinctValues, filterPrices, normalize, type Filters } from "../../../src/features/filters/filters";
+import { makePrice } from "../../helpers";
 
 const ALL: Filters = { product: "GASOLINA COMUM", brand: null, neighborhood: null, query: "" };
 

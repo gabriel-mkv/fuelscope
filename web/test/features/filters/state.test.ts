@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { defaultProduct, resolveFilters } from "../src/state";
-import { makePrice } from "./helpers";
+import { defaultProduct, resolveFilters } from "../../../src/features/filters/state";
+import { makePrice } from "../../helpers";
 
 const prices = [
   makePrice({ cnpj: "1", product: "GASOLINA COMUM", brand: "IPIRANGA", neighborhood: "CENTRO" }),
