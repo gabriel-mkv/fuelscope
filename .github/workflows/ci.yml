@@ -36,6 +36,25 @@ jobs:
       - name: Build and test
         run: ./mvnw verify -B
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install frontend dependencies
+        working-directory: web
+        run: npm ci
+
+      - name: Test frontend
+        working-directory: web
+        run: npm test
+
+      - name: Build frontend
+        working-directory: web
+        run: npm run build
+            
       - name: Upload test reports
         if: always()
         uses: actions/upload-artifact@v7
