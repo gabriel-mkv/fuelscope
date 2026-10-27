@@ -1,11 +1,11 @@
-import { loadCurrentPrices } from "./data";
-import { distinctValues, filterPrices, type Filters } from "./filters";
-import { daysBetween, formatDate, latestDate, titleCase, todayInBrazil } from "./format";
-import { rankByPrice, summarize } from "./ranking";
-import { resolveFilters } from "./state";
-import type { FuelPrice } from "./types";
-import { parseFilters, serializeFilters } from "./urlState";
-import { emptyView, rankingView, summaryView } from "./view";
+import { loadCurrentPrices } from "./features/prices/data";
+import { distinctValues, filterPrices, type Filters } from "./features/filters/filters";
+import { daysBetween, formatDate, latestDate, titleCase, todayInBrazil } from "./shared/format";
+import { rankByPrice, summarize } from "./features/ranking/ranking";
+import { resolveFilters } from "./features/filters/state";
+import type { FuelPrice } from "./shared/types";
+import { parseFilters, serializeFilters } from "./features/filters/urlState";
+import { emptyView, rankingView, summaryView } from "./components/view";
 
 /** Acima disso, a coleta mais recente é considerada defasada e a página avisa. */
 const STALE_AFTER_DAYS = 14;
