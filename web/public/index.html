@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FuelScope · Pará de Minas (MG)</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <h1>FuelScope · Pará de Minas (MG)</h1>
+      <span class="muted">Última coleta: <span id="last-collection">…</span> · Fonte: ANP</span>
+    </header>
+
+    <main>
+        <p id="status" role="status" class="muted">Carregando…</p>
+        <p id="stale" class="notice" role="status" hidden></p>
+
+        <div id="content" class="content" hidden>
+            <section class="filters" aria-label="Filtros">
+            <label class="field">Combustível<select id="filter-product"></select></label>
+            <label class="field">Bandeira<select id="filter-brand"></select></label>
+            <label class="field">Bairro<select id="filter-neighborhood"></select></label>
+            <label class="field field-grow">Buscar posto
+                <input id="filter-query" type="search" placeholder="Nome do posto" autocomplete="off">
+            </label>
+            <button id="clear-filters" type="button" class="button">Limpar filtros</button>
+            </section>
+
+            <p id="result-count" class="muted" aria-live="polite"></p>
+
+            <section id="summary" class="summary" aria-label="Resumo"></section>
+
+            <section aria-labelledby="ranking-title">
+            <h2 id="ranking-title">Ranking · do mais barato ao mais caro</h2>
+            <div id="ranking"></div>
+            <p class="muted legend">
+                Destaque = menor preço. Só aparecem postos com coleta recente (últimos 14 dias).
+                O link abre o endereço do posto no Google Maps.
+            </p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="muted footer">
+      Dados do levantamento semanal da ANP. Os valores refletem as coletas da agência e podem
+      diferir do preço praticado no posto. Projeto não afiliado à ANP.
+    </footer>
+  </div>
+  <noscript>Este painel precisa de JavaScript para exibir os preços.</noscript>
+  <script src="./app.js"></script>
+</body>
+</html>
