@@ -218,6 +218,34 @@ npm run build
 
 O build também valida os tipos TypeScript por meio do `tsc`.
 
+## Makefile
+
+O projeto disponibiliza um `Makefile` na raiz para simplificar os comandos de desenvolvimento, testes e build do backend e frontend.
+
+Para listar os comandos disponíveis, execute:
+
+```bash
+make help
+```
+
+### Principais comandos
+
+| Comando | Descrição |
+|---|---|
+| `make test` | Executa os testes do backend e frontend. |
+| `make verify` | Executa os testes e o build do frontend. |
+| `make build` | Compila o backend e o frontend. |
+| `make backend-test` | Executa os testes e verificações do backend. |
+| `make backend-build` | Empacota a aplicação Java. |
+| `make frontend-test` | Executa os testes do frontend. |
+| `make frontend-build` | Gera o site estático em `web/dist/`. |
+| `make frontend-dev` | Compila o site e inicia o servidor local na porta `8080`. |
+| `make update-data` | Executa a atualização dos dados de preços da ANP. |
+
+**Pré-requisitos:** GNU Make, JDK 21, Node.js 22 e Python 3 para servir o site localmente. As dependências do frontend devem ser instaladas previamente com `npm ci` no diretório `web/`.
+
+**Atenção:** `make update-data` executa a coleta real da ANP e pode modificar os arquivos JSON locais em `data/`.
+
 ## Automação com GitHub Actions
 
 O projeto possui três workflows com responsabilidades distintas.
