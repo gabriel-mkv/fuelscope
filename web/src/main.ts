@@ -1,6 +1,6 @@
 import { loadCurrentPrices } from "./features/prices/data";
 import { distinctValues, filterPrices, type Filters } from "./features/filters/filters";
-import { daysBetween, formatDate, latestDate, titleCase, todayInBrazil } from "./shared/format";
+import { daysBetween, formatDate, formatDateLong, latestDate, titleCase, todayInBrazil } from "./shared/format";
 import { rankByPrice, summarize } from "./features/ranking/ranking";
 import { resolveFilters } from "./features/filters/state";
 import type { FuelPrice } from "./shared/types";
@@ -22,7 +22,6 @@ const ui = {
   content: must<HTMLElement>("#content"),
   lastCollection: must<HTMLElement>("#last-collection"),
   product: must<HTMLSelectElement>("#filter-product"),
-  brand: must<HTMLSelectElement>("#filter-brand"),
   neighborhood: must<HTMLSelectElement>("#filter-neighborhood"),
   query: must<HTMLInputElement>("#filter-query"),
   clear: must<HTMLButtonElement>("#clear-filters"),
@@ -62,11 +61,10 @@ function clearFilters(): void {
 }
 
 function render(): void {
-  // As opções de bandeira e bairro vêm só dos postos do combustível escolhido.
+  // As opções de bairro vêm só dos postos do combustível escolhido.
   const ofProduct = filterPrices(prices, { ...filters, brand: null, neighborhood: null, query: "" });
   fillSelect(ui.product, distinctValues(prices, "product"), null, filters.product);
-  fillSelect(ui.brand, distinctValues(ofProduct, "brand"), "Todas", filters.brand);
-  fillSelect(ui.neighborhood, distinctValues(ofProduct, "neighborhood"), "Todos", filters.neighborhood);
+  fillSelect(ui.neighborhood, distinctValues(ofProduct, "neighborhood"), "Todos os bairros", filters.neighborhood);
   if (ui.query.value !== filters.query) ui.query.value = filters.query;
 
   const ranked = rankByPrice(filterPrices(prices, filters));
@@ -91,7 +89,6 @@ function showStaleNotice(latest: string): void {
 
 function bindEvents(): void {
   ui.product.addEventListener("change", () => setFilters({ ...filters, product: ui.product.value }));
-  ui.brand.addEventListener("change", () => setFilters({ ...filters, brand: ui.brand.value || null }));
   ui.neighborhood.addEventListener("change", () => setFilters({ ...filters, neighborhood: ui.neighborhood.value || null }));
   ui.query.addEventListener("input", () => setFilters({ ...filters, query: ui.query.value }));
   ui.clear.addEventListener("click", clearFilters);
@@ -103,7 +100,7 @@ async function init(): Promise<void> {
     const latest = latestDate(prices);
     if (latest === null) throw new Error("O arquivo de preços está vazio.");
 
-    ui.lastCollection.textContent = formatDate(latest);
+    ui.lastCollection.textContent = formatDateLong(latest);
     showStaleNotice(latest);
     bindEvents();
     setFilters(parseFilters(location.search));
