@@ -44,6 +44,17 @@ public class AnpDownloadService {
             .build();
 
     /**
+     * Resultado de uma tentativa de download.
+     *
+     * Distingue HTTP 404 de uma resposta inválida, permitindo tentar
+     * outro padrão de URL somente quando o arquivo não for encontrado.
+     */
+    private record DownloadAttempt(
+            boolean notFound,
+            Optional<byte[]> content) {
+    }
+
+    /**
      * Sábados finais das semanas a verificar, da mais recente para a mais antiga.
      * Inclui a semana corrente: a ANP costuma publicá-la na sexta, antes de ela terminar.
      */
@@ -55,23 +66,60 @@ public class AnpDownloadService {
         return IntStream.range(0, count).mapToObj(firstEnd::minusWeeks).toList();
     }
 
+    /**
+     * Monta a URL no padrão antigo, com hífens dentro das datas.
+     *
+     * Exemplo:
+     * revendas_lpc_2026-10-18_2026-10-24.xlsx
+     */
     String urlFor(LocalDate weekEnd) {
-        if (weekEnd.getDayOfWeek() != DayOfWeek.SATURDAY) {
-            throw new IllegalArgumentException("A semana da ANP termina no sábado, mas recebi " + weekEnd + ".");
-        }
         LocalDate weekStart = weekEnd.minusDays(6);
         return "%s/%d/revendas_lpc_%s_%s.xlsx".formatted(baseUrl, weekEnd.getYear(), weekStart, weekEnd);
     }
 
     /**
-     * Baixa a planilha da semana que termina em {@code weekEnd}.
+     * Monta a URL no padrão alternativo, com sublinhados dentro das datas.
      *
-     * @return os bytes do .xlsx, ou vazio se a semana ainda não foi publicada
-     * @throws IllegalStateException em erro de rede ou resposta inesperada (ex.: 403, 500)
+     * Exemplo:
+     * revendas_lpc_2026_10_18-2026_10_24.xlsx
+     */
+    String urlForAlternative(LocalDate weekEnd) {
+        LocalDate weekStart = weekEnd.minusDays(6);
+        return "%s/%d/revendas_lpc_%s-%s.xlsx".formatted(baseUrl, weekEnd.getYear(), weekStart.toString().replace("-", "_"), weekEnd.toString().replace("-", "_"));
+    }
+
+    /**
+     * Baixa a planilha da semana informada.
+     *
+     * Primeiro tenta a URL antiga. Se receber HTTP 404, tenta o padrão
+     * alternativo. Outros erros não provocam uma segunda tentativa.
+     *
+     * @return os bytes do XLSX ou vazio se nenhum padrão encontrar
+     *         uma planilha válida
      */
     Optional<byte[]> download(LocalDate weekEnd) {
-        String url = urlFor(weekEnd);
+        validateWeekEnd(weekEnd);
 
+        String primaryUrl = urlFor(weekEnd);
+        DownloadAttempt primaryAttempt = downloadFromUrl(primaryUrl);
+
+        if (!primaryAttempt.notFound) {
+            return primaryAttempt.content;
+        }
+
+        String alternativeUrl = urlForAlternative(weekEnd);
+
+        LOG.infof("URL não encontrada. Tentando padrão alternativo: %s", alternativeUrl);
+
+        DownloadAttempt alternativeAttempt = downloadFromUrl(alternativeUrl);
+
+        return alternativeAttempt.content;
+    }
+
+    /**
+     * Executa uma tentativa de download para uma URL específica.
+     */
+    private DownloadAttempt downloadFromUrl(String url) {
         HttpRequest request = HttpRequest.newBuilder(URI.create(url))
                 .timeout(Duration.ofSeconds(90))
                 .header("User-Agent", USER_AGENT)
@@ -83,20 +131,22 @@ public class AnpDownloadService {
             int status = response.statusCode();
 
             if (status == 404) {
-                LOG.infof("Planilha ainda não publicada: %s", url);
-                return Optional.empty();
+                LOG.infof("Planilha não encontrada: %s", url);
+                return new DownloadAttempt(true, Optional.empty());
             }
+            
             if (status != 200) {
                 throw new IllegalStateException("HTTP " + status + " ao baixar " + url);
             }
+
             if (!looksLikeXlsx(response.body())) {
                 // O portal pode responder 200 com uma página HTML no lugar do arquivo.
                 LOG.warnf("A resposta de %s não é um .xlsx; ignorando.", url);
-                return Optional.empty();
+                return new DownloadAttempt(false, Optional.empty());
             }
 
             LOG.infof("Planilha baixada (%d bytes): %s", response.body().length, url);
-            return Optional.of(response.body());
+            return new DownloadAttempt(false, Optional.of(response.body()));
 
         } catch (IOException e) {
             throw new IllegalStateException("Erro de rede ao baixar " + url, e);
@@ -109,5 +159,11 @@ public class AnpDownloadService {
     /** Um .xlsx é um zip e começa com os bytes "PK". */
     private static boolean looksLikeXlsx(byte[] body) {
         return body != null && body.length > 4 && body[0] == 'P' && body[1] == 'K';
+    }
+
+    private void validateWeekEnd(LocalDate weekEnd) {
+        if (weekEnd.getDayOfWeek() != DayOfWeek.SATURDAY) {
+            throw new IllegalArgumentException("A semana da ANP termina no sábado, mas recebi " + weekEnd + ".");
+        }
     }
 }

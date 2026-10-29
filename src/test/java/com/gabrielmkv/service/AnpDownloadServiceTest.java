@@ -54,11 +54,18 @@ class AnpDownloadServiceTest {
     // ------------------------------------------------------------------ montagem da URL
 
     @Test
-    @DisplayName("monta a URL no padrão da ANP (domingo a sábado)")
+    @DisplayName("monta a URL no padrão da ANP")
     void buildsUrlInAnpPattern() {
         String url = service.urlFor(LocalDate.of(2026, 10, 10));
 
         assertEquals(service.baseUrl + "/2026/revendas_lpc_2026-10-04_2026-10-10.xlsx", url);
+    }
+
+    @Test 
+    @DisplayName("monta a URL no padrão alternativo da ANP)")
+    void buildsUrlInAlternativePattern() {
+        String url = service.urlForAlternative(LocalDate.of(2026, 10, 10));
+        assertEquals(service.baseUrl + "/2026/revendas_lpc_2026_10_04-2026_10_10.xlsx", url);
     }
 
     @Test
@@ -76,7 +83,7 @@ class AnpDownloadServiceTest {
     @Test
     @DisplayName("rejeita datas finais que não são sábado")
     void rejectsNonSaturday() {
-        assertThrows(IllegalArgumentException.class, () -> service.urlFor(LocalDate.of(2026, 10, 9)));
+        assertThrows(IllegalArgumentException.class, () -> service.download(LocalDate.of(2026, 10, 9)));
     }
 
     // ------------------------------------------------------------------ semanas a verificar
@@ -127,9 +134,20 @@ class AnpDownloadServiceTest {
     // ------------------------------------------------------------------ download
 
     @Test
-    @DisplayName("devolve os bytes quando a planilha existe")
+    @DisplayName("baixa a planilha pelo padrão antigo quando ela existe")
     void downloadsExistingFile() {
         serve("/2026/revendas_lpc_2026-10-04_2026-10-10.xlsx", 200, "application/vnd.ms-excel", XLSX_BYTES);
+
+        Optional<byte[]> result = service.download(LocalDate.of(2026, 10, 10));
+
+        assertTrue(result.isPresent());
+        assertTrue(Arrays.equals(XLSX_BYTES, result.get()));
+    }
+
+    @Test 
+    @DisplayName("tenta o padrão alternativo quando o antigo não existe")
+    void triesAlternativeWhenNotFound() {
+        serve("/2026/revendas_lpc_2026_10_04-2026_10_10.xlsx", 200, "application/vnd.ms-excel", XLSX_BYTES);
 
         Optional<byte[]> result = service.download(LocalDate.of(2026, 10, 10));
 
