@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { daysBetween, formatDate, formatPrice, latestDate, titleCase, todayInBrazil } from "../../src/shared/format";
-import type { FuelPrice } from "../../src/shared/types";
+import { daysBetween, formatDate, formatDateLong, formatNeighborhood, formatPrice, latestDate, orDash, titleCase, todayInBrazil } from "../../src/shared/format";
+import { isManualCollectionPrice, type FuelPrice } from "../../src/shared/types";
 
 function priceOn(collectionDate: string): FuelPrice {
   return {
@@ -19,6 +19,10 @@ function priceOn(collectionDate: string): FuelPrice {
 describe("format", () => {
   it("formata a data ISO como dd/mm/aaaa", () => {
     expect(formatDate("2026-09-29")).toBe("29/09/2026");
+  });
+
+  it("formata a data ISO no formato extenso brasileiro", () => {
+    expect(formatDateLong("2026-10-28")).toBe("28 de out. de 2026");
   });
 
   it("formata o preço em reais com vírgula decimal", () => {
@@ -67,5 +71,51 @@ describe("todayInBrazil", () => {
   it("usa o fuso de São Paulo, não o UTC", () => {
     // 01:00 UTC de 28/10 ainda é 22:00 de 27/10 em São Paulo.
     expect(todayInBrazil(new Date("2026-10-28T01:00:00Z"))).toBe("2026-10-27");
+  });
+});
+
+describe("formatNeighborhood", () => {
+  it("adiciona prefixo Bairro se não possuir", () => {
+    expect(formatNeighborhood("SÃO FRANCISCO")).toBe("Bairro São Francisco");
+    expect(formatNeighborhood("CENTRO")).toBe("Bairro Centro");
+  });
+
+  it("não duplica prefixo Bairro se já existir", () => {
+    expect(formatNeighborhood("Bairro São José")).toBe("Bairro São José");
+  });
+
+  it("retorna string vazia para valores vazios ou traço", () => {
+    expect(formatNeighborhood("")).toBe("");
+    expect(formatNeighborhood("—")).toBe("");
+  });
+});
+
+describe("orDash", () => {
+  it("retorna traço para strings vazias", () => {
+    expect(orDash("")).toBe("—");
+    expect(orDash("   ")).toBe("—");
+  });
+
+  it("aplica titleCase para strings não vazias", () => {
+    expect(orDash("CENTRO")).toBe("Centro");
+  });
+});
+
+describe("isManualCollectionPrice", () => {
+  it("retorna true para isManualCollection: true", () => {
+    const price = priceOn("2026-10-28");
+    price.isManualCollection = true;
+    expect(isManualCollectionPrice(price)).toBe(true);
+  });
+
+  it("retorna true para source: MANUAL", () => {
+    const price = priceOn("2026-10-28");
+    price.source = "MANUAL";
+    expect(isManualCollectionPrice(price)).toBe(true);
+  });
+
+  it("retorna false para registros padrão (ANP/sem flag)", () => {
+    const price = priceOn("2026-10-28");
+    expect(isManualCollectionPrice(price)).toBe(false);
   });
 });

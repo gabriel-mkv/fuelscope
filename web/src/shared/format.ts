@@ -20,6 +20,15 @@ export function latestDate(prices: FuelPrice[]): string | null {
 
 const LOWERCASE_WORDS = new Set(["de", "da", "do", "das", "dos", "e"]);
 const UPPERCASE_WORDS = new Set(["gnv", "glp", "br"]);
+const MONTHS_SHORT = ["jan.", "fev.", "mar.", "abr.", "mai.", "jun.", "jul.", "ago.", "set.", "out.", "nov.", "dez."];
+
+/** "2026-10-28" -> "28 de out. de 2026", sem efeito de fuso horário. */
+export function formatDateLong(iso: string): string {
+  const [year, month, day] = iso.split("-");
+  const monthIndex = Number(month) - 1;
+  const monthName = MONTHS_SHORT[monthIndex] ?? month;
+  return `${Number(day)} de ${monthName} de ${year}`;
+}
 
 /** "POSTO SÃO JOSÉ DE MINAS LTDA" -> "Posto São José de Minas Ltda". Só para exibição. */
 export function titleCase(text: string): string {
@@ -31,6 +40,19 @@ export function titleCase(text: string): string {
     if (!isFirst && LOWERCASE_WORDS.has(word)) return word;
     return word.charAt(0).toUpperCase() + word.slice(1);
   });
+}
+
+/** "SAO FRANCISCO" -> "Bairro São Francisco". */
+export function formatNeighborhood(hood: string): string {
+  const trimmed = hood.trim();
+  if (!trimmed || trimmed === "—") return "";
+  const formatted = titleCase(trimmed);
+  return formatted.toLowerCase().startsWith("bairro ") ? formatted : `Bairro ${formatted}`;
+}
+
+/** Devolve o texto em title case ou "—" se estiver em branco. */
+export function orDash(text: string): string {
+  return text.trim() === "" ? "—" : titleCase(text);
 }
 
 const MS_PER_DAY = 86_400_000;
