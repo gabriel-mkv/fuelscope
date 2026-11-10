@@ -7,7 +7,7 @@
   "brand" : "IPIRANGA",
   "product" : "DIESEL S10",
   "price" : 7.19,
-  "collectionDate" : "2026-10-27"
+  "collectionDate" : "2026-11-05"
 }, {
   "cnpj" : "05835706000197",
   "legalName" : "AUTO POSTO MR LTDA",
@@ -17,7 +17,7 @@
   "brand" : "IPIRANGA",
   "product" : "DIESEL S500",
   "price" : 6.79,
-  "collectionDate" : "2026-10-27"
+  "collectionDate" : "2026-11-05"
 }, {
   "cnpj" : "05835706000197",
   "legalName" : "AUTO POSTO MR LTDA",
@@ -26,8 +26,8 @@
   "neighborhood" : "SAO JOSE",
   "brand" : "IPIRANGA",
   "product" : "ETANOL",
-  "price" : 4.49,
-  "collectionDate" : "2026-10-27"
+  "price" : 4.59,
+  "collectionDate" : "2026-11-05"
 }, {
   "cnpj" : "05835706000197",
   "legalName" : "AUTO POSTO MR LTDA",
@@ -36,8 +36,8 @@
   "neighborhood" : "SAO JOSE",
   "brand" : "IPIRANGA",
   "product" : "GASOLINA ADITIVADA",
-  "price" : 6.43,
-  "collectionDate" : "2026-10-27"
+  "price" : 6.50,
+  "collectionDate" : "2026-11-05"
 }, {
   "cnpj" : "05835706000197",
   "legalName" : "AUTO POSTO MR LTDA",
@@ -46,8 +46,8 @@
   "neighborhood" : "SAO JOSE",
   "brand" : "IPIRANGA",
   "product" : "GASOLINA COMUM",
-  "price" : 6.29,
-  "collectionDate" : "2026-10-27"
+  "price" : 6.36,
+  "collectionDate" : "2026-11-05"
 }, {
   "cnpj" : "08538103000111",
   "legalName" : "AUTO POSTO IRMAOS MELGACO LTDA",
@@ -57,7 +57,7 @@
   "brand" : "VIBRA",
   "product" : "DIESEL S10",
   "price" : 6.99,
-  "collectionDate" : "2026-10-29"
+  "collectionDate" : "2026-11-04"
 }, {
   "cnpj" : "08538103000111",
   "legalName" : "AUTO POSTO IRMAOS MELGACO LTDA",
@@ -67,7 +67,7 @@
   "brand" : "VIBRA",
   "product" : "DIESEL S500",
   "price" : 6.69,
-  "collectionDate" : "2026-10-29"
+  "collectionDate" : "2026-11-04"
 }, {
   "cnpj" : "08538103000111",
   "legalName" : "AUTO POSTO IRMAOS MELGACO LTDA",
@@ -76,8 +76,8 @@
   "neighborhood" : "DONA TUNICA",
   "brand" : "VIBRA",
   "product" : "ETANOL",
-  "price" : 3.99,
-  "collectionDate" : "2026-10-29"
+  "price" : 4.29,
+  "collectionDate" : "2026-11-04"
 }, {
   "cnpj" : "08538103000111",
   "legalName" : "AUTO POSTO IRMAOS MELGACO LTDA",
@@ -87,7 +87,7 @@
   "brand" : "VIBRA",
   "product" : "GASOLINA COMUM",
   "price" : 6.29,
-  "collectionDate" : "2026-10-29"
+  "collectionDate" : "2026-11-04"
 }, {
   "cnpj" : "29335625000196",
   "legalName" : "LIBER COMERCIO DE COMBUSTIVEIS E DERIVADOS DE PETROLEO LTDA",
@@ -97,7 +97,7 @@
   "brand" : "IPIRANGA",
   "product" : "DIESEL S10",
   "price" : 6.97,
-  "collectionDate" : "2026-10-27"
+  "collectionDate" : "2026-11-05"
 }, {
   "cnpj" : "29335625000196",
   "legalName" : "LIBER COMERCIO DE COMBUSTIVEIS E DERIVADOS DE PETROLEO LTDA",
@@ -107,7 +107,7 @@
   "brand" : "IPIRANGA",
   "product" : "DIESEL S500",
   "price" : 6.57,
-  "collectionDate" : "2026-10-27"
+  "collectionDate" : "2026-11-05"
 }, {
   "cnpj" : "29335625000196",
   "legalName" : "LIBER COMERCIO DE COMBUSTIVEIS E DERIVADOS DE PETROLEO LTDA",
@@ -117,7 +117,7 @@
   "brand" : "IPIRANGA",
   "product" : "ETANOL",
   "price" : 4.27,
-  "collectionDate" : "2026-10-27"
+  "collectionDate" : "2026-11-05"
 }, {
   "cnpj" : "29335625000196",
   "legalName" : "LIBER COMERCIO DE COMBUSTIVEIS E DERIVADOS DE PETROLEO LTDA",
@@ -127,7 +127,7 @@
   "brand" : "IPIRANGA",
   "product" : "GASOLINA ADITIVADA",
   "price" : 6.47,
-  "collectionDate" : "2026-10-27"
+  "collectionDate" : "2026-11-05"
 }, {
   "cnpj" : "29335625000196",
   "legalName" : "LIBER COMERCIO DE COMBUSTIVEIS E DERIVADOS DE PETROLEO LTDA",
@@ -137,7 +137,7 @@
   "brand" : "IPIRANGA",
   "product" : "GASOLINA COMUM",
   "price" : 6.27,
-  "collectionDate" : "2026-10-27"
+  "collectionDate" : "2026-11-05"
 }, {
   "cnpj" : "19657402000191",
   "legalName" : "AUTO POSTO ALMEIDA LTDA",
@@ -157,7 +157,7 @@
   "brand" : "RAIZEN",
   "product" : "DIESEL S500",
   "price" : 6.99,
-  "collectionDate" : "2026-10-29"
+  "collectionDate" : "2026-11-04"
 }, {
   "cnpj" : "19657402000191",
   "legalName" : "AUTO POSTO ALMEIDA LTDA",
@@ -166,8 +166,8 @@
   "neighborhood" : "SAO FRANCISCO",
   "brand" : "RAIZEN",
   "product" : "ETANOL",
-  "price" : 3.99,
-  "collectionDate" : "2026-10-29"
+  "price" : 4.29,
+  "collectionDate" : "2026-11-04"
 }, {
   "cnpj" : "19657402000191",
   "legalName" : "AUTO POSTO ALMEIDA LTDA",
@@ -177,7 +177,7 @@
   "brand" : "RAIZEN",
   "product" : "GASOLINA ADITIVADA",
   "price" : 6.49,
-  "collectionDate" : "2026-10-29"
+  "collectionDate" : "2026-11-04"
 }, {
   "cnpj" : "19657402000191",
   "legalName" : "AUTO POSTO ALMEIDA LTDA",
@@ -187,7 +187,7 @@
   "brand" : "RAIZEN",
   "product" : "GASOLINA COMUM",
   "price" : 6.29,
-  "collectionDate" : "2026-10-29"
+  "collectionDate" : "2026-11-04"
 }, {
   "cnpj" : "04510593000197",
   "legalName" : "POSTO J H S LTDA",
@@ -196,8 +196,8 @@
   "neighborhood" : "CENTRO",
   "brand" : "ALE",
   "product" : "DIESEL S10",
-  "price" : 6.89,
-  "collectionDate" : "2026-10-29"
+  "price" : 6.99,
+  "collectionDate" : "2026-11-05"
 }, {
   "cnpj" : "04510593000197",
   "legalName" : "POSTO J H S LTDA",
@@ -207,7 +207,7 @@
   "brand" : "ALE",
   "product" : "ETANOL",
   "price" : 3.99,
-  "collectionDate" : "2026-10-29"
+  "collectionDate" : "2026-11-05"
 }, {
   "cnpj" : "04510593000197",
   "legalName" : "POSTO J H S LTDA",
@@ -217,7 +217,7 @@
   "brand" : "ALE",
   "product" : "GASOLINA ADITIVADA",
   "price" : 6.69,
-  "collectionDate" : "2026-10-29"
+  "collectionDate" : "2026-11-05"
 }, {
   "cnpj" : "04510593000197",
   "legalName" : "POSTO J H S LTDA",
@@ -227,7 +227,7 @@
   "brand" : "ALE",
   "product" : "GASOLINA COMUM",
   "price" : 6.29,
-  "collectionDate" : "2026-10-29"
+  "collectionDate" : "2026-11-05"
 }, {
   "cnpj" : "86539590000140",
   "legalName" : "COMÉRCIO RODRIGUES E FARIA LTDA",
@@ -236,8 +236,8 @@
   "neighborhood" : "SANTOS DUMONT",
   "brand" : "VIBRA",
   "product" : "DIESEL S500",
-  "price" : 6.64,
-  "collectionDate" : "2026-10-27"
+  "price" : 6.69,
+  "collectionDate" : "2026-11-02"
 }, {
   "cnpj" : "86539590000140",
   "legalName" : "COMÉRCIO RODRIGUES E FARIA LTDA",
@@ -247,7 +247,7 @@
   "brand" : "VIBRA",
   "product" : "GASOLINA ADITIVADA",
   "price" : 6.44,
-  "collectionDate" : "2026-10-27"
+  "collectionDate" : "2026-11-02"
 }, {
   "cnpj" : "86539590000140",
   "legalName" : "COMÉRCIO RODRIGUES E FARIA LTDA",
@@ -257,7 +257,7 @@
   "brand" : "VIBRA",
   "product" : "GASOLINA COMUM",
   "price" : 6.39,
-  "collectionDate" : "2026-10-27"
+  "collectionDate" : "2026-11-02"
 }, {
   "cnpj" : "02681911000157",
   "legalName" : "POSTO PARA LTDA",
@@ -267,7 +267,7 @@
   "brand" : "VIBRA",
   "product" : "DIESEL S500",
   "price" : 6.79,
-  "collectionDate" : "2026-10-29"
+  "collectionDate" : "2026-11-02"
 }, {
   "cnpj" : "02681911000157",
   "legalName" : "POSTO PARA LTDA",
@@ -277,7 +277,7 @@
   "brand" : "VIBRA",
   "product" : "GASOLINA ADITIVADA",
   "price" : 6.37,
-  "collectionDate" : "2026-10-29"
+  "collectionDate" : "2026-11-02"
 }, {
   "cnpj" : "02681911000157",
   "legalName" : "POSTO PARA LTDA",
@@ -287,7 +287,7 @@
   "brand" : "VIBRA",
   "product" : "GASOLINA COMUM",
   "price" : 6.28,
-  "collectionDate" : "2026-10-29"
+  "collectionDate" : "2026-11-02"
 }, {
   "cnpj" : "01569818000192",
   "legalName" : "POSTOS PMG - PARA DE MINAS LTDA",
@@ -297,7 +297,7 @@
   "brand" : "BRANCA",
   "product" : "DIESEL S10",
   "price" : 6.89,
-  "collectionDate" : "2026-10-29"
+  "collectionDate" : "2026-11-05"
 }, {
   "cnpj" : "01569818000192",
   "legalName" : "POSTOS PMG - PARA DE MINAS LTDA",
@@ -307,7 +307,7 @@
   "brand" : "BRANCA",
   "product" : "DIESEL S500",
   "price" : 6.69,
-  "collectionDate" : "2026-10-29"
+  "collectionDate" : "2026-11-05"
 }, {
   "cnpj" : "01569818000192",
   "legalName" : "POSTOS PMG - PARA DE MINAS LTDA",
@@ -317,7 +317,7 @@
   "brand" : "BRANCA",
   "product" : "ETANOL",
   "price" : 3.99,
-  "collectionDate" : "2026-10-29"
+  "collectionDate" : "2026-11-05"
 }, {
   "cnpj" : "01569818000192",
   "legalName" : "POSTOS PMG - PARA DE MINAS LTDA",
@@ -327,7 +327,7 @@
   "brand" : "BRANCA",
   "product" : "GASOLINA ADITIVADA",
   "price" : 6.42,
-  "collectionDate" : "2026-10-29"
+  "collectionDate" : "2026-11-05"
 }, {
   "cnpj" : "01569818000192",
   "legalName" : "POSTOS PMG - PARA DE MINAS LTDA",
@@ -337,5 +337,5 @@
   "brand" : "BRANCA",
   "product" : "GASOLINA COMUM",
   "price" : 6.29,
-  "collectionDate" : "2026-10-29"
+  "collectionDate" : "2026-11-05"
 } ]
