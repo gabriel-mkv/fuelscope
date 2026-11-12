@@ -27,6 +27,7 @@ function cheapestCard(summary: PriceSummary): HTMLElement {
   const stationName = el("strong", {
     className: "card-station-name",
     text: titleCase(summary.cheapest.tradeName),
+    attrs: { title: titleCase(summary.cheapest.tradeName) },
   });
   const stationHood = el("span", {
     className: "card-station-hood",
