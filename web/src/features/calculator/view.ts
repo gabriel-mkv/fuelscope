@@ -50,7 +50,7 @@ export function renderCalculator(container: HTMLElement): void {
   // Tabs
   const tabQuick = el("button", {
     className: "calc-tab is-active",
-    text: "Comparação rápida (70%)",
+    text: "Comparação rápida",
     attrs: {
       type: "button",
       role: "tab",
@@ -62,7 +62,7 @@ export function renderCalculator(container: HTMLElement): void {
 
   const tabCustom = el("button", {
     className: "calc-tab",
-    text: "Comparação personalizada (km/L)",
+    text: "Comparação personalizada",
     attrs: {
       type: "button",
       role: "tab",
