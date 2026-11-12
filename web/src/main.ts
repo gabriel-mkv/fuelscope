@@ -6,6 +6,7 @@ import { resolveFilters } from "./features/filters/state";
 import type { FuelPrice } from "./shared/types";
 import { parseFilters, serializeFilters } from "./features/filters/urlState";
 import { emptyView, rankingView, summaryView } from "./components/view";
+import { renderCalculator } from "./features/calculator/view";
 
 /** Acima disso, a coleta mais recente é considerada defasada e a página avisa. */
 const STALE_AFTER_DAYS = 14;
@@ -28,6 +29,7 @@ const ui = {
   count: must<HTMLElement>("#result-count"),
   summary: must<HTMLElement>("#summary"),
   ranking: must<HTMLElement>("#ranking"),
+  calculator: must<HTMLElement>("#calculator"),
 };
 
 let prices: FuelPrice[] = [];
@@ -104,6 +106,7 @@ async function init(): Promise<void> {
     showStaleNotice(latest);
     bindEvents();
     setFilters(parseFilters(location.search));
+    renderCalculator(ui.calculator);
 
     ui.status.hidden = true;
     ui.content.hidden = false;
